@@ -808,14 +808,14 @@ class Squid:
             return False
         self.storage['unique_all_time'] = list()
         self.storage['regex'] = re.compile(r'[0-9.]+\s+(?P<duration>[0-9]+)'
-                                           r' (?P<client_address>[\da-f.:]+)'
+                                           r' (?P<client_address>[\dA-Za-z.:_-]+)'
                                            r' (?P<squid_code>[A-Z_]+)/'
                                            r'(?P<http_code>[0-9]+)'
                                            r' (?P<bytes>[0-9]+)'
                                            r' (?P<method>[A-Z_]+)'
                                            r' (?P<url>[^ ]+)'
                                            r' (?P<user>[^ ]+)'
-                                           r' (?P<hier_code>[A-Z_]+)/[\da-f.:-]+'
+                                           r' (?P<hier_code>[A-Z_]+)/[\da-z.:-]+'
                                            r' (?P<mime_type>[^\n]+)')
 
         match = self.storage['regex'].search(last_line)
